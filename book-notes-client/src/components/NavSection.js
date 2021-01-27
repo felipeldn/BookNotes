@@ -1,5 +1,5 @@
 import React from 'react';
-import {Nav, Navbar} from 'react-boostrap';
+import {Nav, Navbar} from 'react-bootstrap';
 
 export const NavSection = () => (
     <Navbar expand='lg'>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {InputGroup, FormControl, Button, FormGroup, Spinner} from 'react-boostrap';
+import {InputGroup, FormControl, Button, FormGroup, Spinner} from 'react-bootstrap';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
@@ -15,24 +15,24 @@ export const Search = () => {
     const handleSubmit = () => {
         setLoading(true)
         if(resultsNum > 50 || resultsNum < 1) {
-            toast.error('max results must be between 1 and 40')
+          toast.error('max results must be between 1 and 40')
         } else {
-            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=${resultsNum}&startIndex=${startNumber}`).then(res => {
-                if(startNumber >= res.data.totalItems || startNumber < 1) { 
-                    toast.error(`The number of results to display must be between 1 and ${res.data.totalItems}`);
+          axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=${resultsNum}&startIndex=${startNumber}`).then(res => {
+            if(startNumber >= res.data.totalItems || startNumber < 1) {
+              toast.error(`The number of results to dispaly must be between 1 and ${res.data.totalItems}`);
             } else {
-                if(res.data.item.length > 0) {
-                    setCards(res.data.items)
-                    setLoading(false)
-                }
+              if(res.data.items.length > 0) {
+                setCards(res.data.items)
+                setLoading(false)
+              }
             }
             console.log(res.data)
-        }).catch(err => {
+          }).catch(err => {
             setLoading(true)
             toast.error(`${err.response.data.error.message}`)
-        })
+          })
         }
-    }
+      }
 
     const searchForm = () => {
         return(

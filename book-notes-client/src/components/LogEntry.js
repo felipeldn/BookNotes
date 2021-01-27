@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux';
 import {updateBook} from '../actions/BookActions';
 import {deleteBook} from '../actions/BookActions';
 
-import {Form, Col, Button, Modal} from 'react-boostrap';
+import {Form, Col, Button, Modal} from 'react-bootstrap';
 
 import '../App.css';
 
