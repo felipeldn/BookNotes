@@ -28,8 +28,8 @@ class Books extends Component {
                         
                         {
                             this.props.books.sort(function(a, b) {
-                                var bookA = a.title.toUpperCase(); 
-                                var bookB = b.title.toUpperCase(); 
+                                let bookA = a.title.toUpperCase(); 
+                                let bookB = b.title.toUpperCase(); 
                                 if (bookA < bookB) {
                                   return -1;
                                 }

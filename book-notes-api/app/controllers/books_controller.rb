@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-    before_action :set_book, only [:show, :update, :destroy]
+    before_action :set_book, only: [:show, :update, :destroy]
 
     #GET /books
     def index
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
         end
     end
 
-    # PATCH/OUT /books/1
+    # PATCH /books/1
     def update
         if @book.update(book_params)
             render json: @book

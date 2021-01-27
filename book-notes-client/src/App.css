@@ -5,7 +5,7 @@
 }
 
 .navbar {
-  background-color: forestgreen;
+  background-color: rgb(17, 17, 16);
 }
 
 .jumbotron {
@@ -24,7 +24,7 @@
 .main-buttons {
   padding: 16px;
   color: ivory;
-  background-color: forestgreen;
+  background-color: rgb(184, 181, 11);
   border: 1px solid black;
   border-radius: 10px;
 }

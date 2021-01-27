@@ -30,13 +30,13 @@ class BookLogForm extends Component {
         this.props.addBook(this.state)
         this.setState({
             title: '',
-        author: '',
-        pages: '',
-        date_finished: '',
-        people: '',
-        period: '',
-        something_learned: '',
-        questions: ''
+            author: '',
+            pages: '',
+            date_finished: '',
+            people: '',
+            period: '',
+            something_learned: '',
+            questions: ''
         })
     }
 
@@ -66,7 +66,7 @@ class BookLogForm extends Component {
                                         </Col>
                                         <Col>
                                             <Form.Label>Number of Pages:</Form.Label>
-                                            <Form.Control required type='number' value={this.state.pages} onChange={this.handleChange} name="author"/>
+                                            <Form.Control required type='number' value={this.state.pages} onChange={this.handleChange} name="pages"/>
                                         </Col>
                                     </Form.Row>
 
@@ -81,7 +81,7 @@ class BookLogForm extends Component {
                                         </Col>
                                     </Form.Row>
 
-                                    <Form.Label>Were there any historical worthy of note in this book?</Form.Label>
+                                    <Form.Label>Were there any historical figures worthy of note in this book?</Form.Label>
                                     <Form.Control required type='text' value={this.state.people} onChange={this.handleChange} name="people"/>
 
                                     <Form.Label>Have you learned any particular lessons from reading this book?</Form.Label>
