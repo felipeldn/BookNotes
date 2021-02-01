@@ -17,6 +17,8 @@ function LogEntry({book}) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
+
     const updateLog = () => {
         handleClose()
         dispatch(updateBook(
@@ -31,15 +33,16 @@ function LogEntry({book}) {
                 question: question
             }
         )) 
-        window.alert("Entry updated.")
-    } 
+        // window.alert("Entry updated.")
+    }
 
     const handleDelete = () => {
         let confirmation = window.confirm("Are you sure you want to delete this log entry?")
         if (confirmation === true) {
+            console.log("delete book req ===> ", book)
             dispatch(deleteBook(book))
-            window.alert("Entry deleted.")
-            window.location.reload()
+            // window.alert("Entry deleted.")
+            // window.location.reload()
         }
     } 
 
@@ -51,7 +54,6 @@ function LogEntry({book}) {
     const [something_learned, setSomething_Learned] = useState(book.something_learned)
     const [question, setQuestion] = useState(book.question)
 
-    
     return(
         <div className='log-entry' key={book.id}>
             <h3>{book.title}</h3>
@@ -92,7 +94,7 @@ function LogEntry({book}) {
 
                     </Form.Row>
                     
-                    <Form.Label>Main Characters:</Form.Label>
+                    <Form.Label>Historical Figures:</Form.Label>
                     <Form.Control required type='text' value={people} onChange={e => setPeople(e.target.value)} name="people" />
                     
                     <Form.Label>Something You Learned:</Form.Label>

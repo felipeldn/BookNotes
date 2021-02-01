@@ -27,6 +27,8 @@ class BooksController < ApplicationController
 
     # PATCH /books/1
     def update
+        # @book = Book.find(params[:id])
+        p "update ==> " + params[:id]
         if @book.update(book_params)
             render json: @book
         else
@@ -36,6 +38,7 @@ class BooksController < ApplicationController
 
     #DELETE /books/1
     def destroy
+        # @book = Book.find(params[:id])
         @book.destroy
     end
 
@@ -43,7 +46,7 @@ class BooksController < ApplicationController
 
     #Use callbacks to share common setup and constraints between actions. 
     def set_book
-        @book = book.find(params[:id])
+        @book = Book.find(params[:id])
     end
 
     def book_params

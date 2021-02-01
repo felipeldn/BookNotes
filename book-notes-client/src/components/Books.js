@@ -9,10 +9,13 @@ import {deleteBook} from '../actions/BookActions'
 class Books extends Component {
     constructor(props) {
         super(props);
+        // this.updateLog = this.updateLog.bind(this);
+        // this.handleDelete = this.handleDelete.bind(this);
     }
 
    componentDidMount() {
         this.props.onGet();
+        
     } 
 
     render() {

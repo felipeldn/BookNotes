@@ -2,7 +2,7 @@ import React from 'react';
 import {Jumbotron as Banner, Row, Col} from 'react-bootstrap';
 import '../App.css'
 
-const bannerImage = require('./historianNotes.jpg');
+import bannerImage from './historianNotesSF.png';
 export const Jumbotron = () => (
 
     <Banner fluid>
@@ -15,7 +15,7 @@ export const Jumbotron = () => (
             </Col>
 
             <Col>
-                <img src={bannerImage} alt="explorer image" width="100%" height="100%" />
+                <img src={bannerImage} alt="explorer image" width="50%" height="70%" />
             </Col>
         </Row>
     </Banner>
