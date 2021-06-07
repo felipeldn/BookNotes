@@ -1,13 +1,20 @@
 export const addBook = book => {
+    console.log('b')
     return dispatch => {
+        console.log('c')
         fetch('http://localhost:3000/books', {
             method: 'POST',
             body: JSON.stringify(book),
             headers: {'Content-Type': 'application/json'}
         })
         .then(resp => resp.json())
-        .then(book => dispatch({type: 'ADD_BOOK', payload: book}))
+        .then(book => {
+            console.log('d')
+            return dispatch({type: 'ADD_BOOK', payload: book})
+        })
+        console.log('e')
     }
+    console.log('f')
 }
 
 export const getBooks = () => {
@@ -38,18 +45,10 @@ export const updateBook = book => {
 export const deleteBook = book => {
     console.log("================> ", book)
     return dispatch => {
-        dispatch({type: "DELETE_BOOK_REQ"});
+        dispatch({type: "DELETE_BOOK"});
         fetch(`http://localhost:3000/books/${book.id}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
-        })
-        .then(res => {
-            console.log('res ===> ', res)
-            dispatch({type: 'DELETE_BOOK_SUC', id: book.id});
-        })        
-        .catch(err => {
-            dispatch({type: 'DELETE_BOOK_ERR', error: err});
-            console.log('error ==> ', err)
-        })
+        })    
     }
 }

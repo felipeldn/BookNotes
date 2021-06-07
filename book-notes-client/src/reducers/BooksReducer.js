@@ -12,7 +12,7 @@ export const BooksReducer = (state={books: []}, action) => {
                 //return [...state, action.payload]
                 const updates = state.books.filter(book => book.id !== action.payload.id)
                 return {...state, books: [...updates, action.payload]}
-            case 'DELETE_BOOK_SUC':
+            case 'DELETE_BOOK':
                 //const books = state.filter(book => book !== action.id) 
                 //return books
                 const keptBooks = state.books.filter(book => book.id !== action.id)

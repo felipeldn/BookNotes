@@ -6,7 +6,8 @@ import {Form, Col, Button, Accordion, Card} from 'react-bootstrap';
 
 import '../App.css'
 
-class BookLogForm extends Component {
+
+class BookLogForm extends Component {     
     state = {
         title: '',
         author: '',
@@ -27,7 +28,9 @@ class BookLogForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         window.alert("New entry added.")
+        console.log('a')
         this.props.addBook(this.state)
+        console.log('g')
         this.setState({
             title: '',
             author: '',

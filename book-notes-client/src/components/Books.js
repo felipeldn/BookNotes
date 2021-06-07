@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {getBooks} from '../actions/BookActions'
 import {deleteBook} from '../actions/BookActions'
 
-
 class Books extends Component {
     constructor(props) {
         super(props);
@@ -14,8 +13,7 @@ class Books extends Component {
     }
 
    componentDidMount() {
-        this.props.onGet();
-        
+        this.props.onGet();        
     } 
 
     render() {
@@ -46,7 +44,7 @@ class Books extends Component {
                                     <LogEntry
                                         key={book.id}
                                         book={book}
-                                        onDelete={this.props.onDelete}
+                                        // onDelete={this.props.onDelete}
                                     />
                                 )
                             })
@@ -60,6 +58,7 @@ class Books extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log("mapStateToProps", state);
     return {
         books: state.books || []
     }

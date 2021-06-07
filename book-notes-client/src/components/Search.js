@@ -19,7 +19,7 @@ export const Search = () => {
         } else {
           axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=${resultsNum}&startIndex=${startNumber}`).then(res => {
             if(startNumber >= res.data.totalItems || startNumber < 1) {
-              toast.error(`The number of results to dispaly must be between 1 and ${res.data.totalItems}`);
+              toast.error(`The number of results to display must be between 1 and ${res.data.totalItems}`);
             } else {
               if(res.data.items.length > 0) {
                 setCards(res.data.items)
@@ -29,7 +29,8 @@ export const Search = () => {
             console.log(res.data)
           }).catch(err => {
             setLoading(true)
-            toast.error(`${err.response.data.error.message}`)
+            console.dir(err)
+            toast.error(`${err}`)
           })
         }
       }
@@ -81,7 +82,7 @@ export const Search = () => {
     const handleCards = () => {
         const items = cards.map((item, i) => {
             let thumbnail = '';
-            if(item.volumeInfo.imageLinks.thumbnail) {
+            if(item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail) {
                 thumbnail = item.volumeInfo.imageLinks.thumbnail;
             }
 
