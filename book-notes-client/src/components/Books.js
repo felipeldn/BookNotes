@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import BookLogForm from './BookLogForm';
 import LogEntry from './LogEntry';
+import LogSearch from './LogSearch'
 import {connect} from 'react-redux';
 import {getBooks} from '../actions/BookActions'
 import {deleteBook} from '../actions/BookActions'
@@ -8,8 +9,17 @@ import {deleteBook} from '../actions/BookActions'
 class Books extends Component {
     constructor(props) {
         super(props);
-        // this.updateLog = this.updateLog.bind(this);
-        // this.handleDelete = this.handleDelete.bind(this);
+
+        this.state = {
+            input: ""
+        }
+    
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(event) {
+            this.setState({input : event.target.value
+        })
     }
 
    componentDidMount() {
@@ -17,9 +27,28 @@ class Books extends Component {
     } 
 
     render() {
+
+        const filterBooks = (books, query) => {
+            if (!query) {
+                return books;
+            }
+
+            return books.filter((book) => {
+                const bookName = book.title.toLowerCase();
+                return bookName.includes(query)
+            })
+        }
+
+        const filteredBooks = filterBooks(this.props.books, this.state.input)
+
         return (
         
                  <div>
+                     <div className="log-search"> <LogSearch handleChange={this.handleChange}/>
+                        {filteredBooks.map(book => (
+                        <li key={book.id}>{book.title}</li>
+                        ))}
+                     </div>
                     <h1 className="log-head">Your Reading Log</h1>
                     <BookLogForm />
                     <hr />

@@ -17,7 +17,6 @@ class App extends Component {
           <div className = "content">
             <NavSection/>
             <Jumbotron/>
-
             <Router>
               <Switch>
                 <Route exact path = '/' component = {Home}/>

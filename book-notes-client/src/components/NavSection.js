@@ -1,8 +1,7 @@
 import React from 'react';
 import {Nav, Navbar} from 'react-bootstrap';
-import {InputGroup, FormControl, Button, FormGroup, Spinner} from 'react-bootstrap';
 
-const [search, setSearch] = useState('');
+// const [search, setSearch] = useState('');
 
 export const NavSection = () => (
 
