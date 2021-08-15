@@ -1,7 +1,7 @@
 export const addBook = book => {
-    // console.log('b')
+    console.log('b')
     return dispatch => {
-        // console.log('c')
+        console.log('c')
         fetch('http://localhost:3000/books', {
             method: 'POST',
             body: JSON.stringify(book),
@@ -9,10 +9,10 @@ export const addBook = book => {
         })
         .then(resp => resp.json())
         .then(book => {
-            // console.log('d')
+            console.log('d')
             return dispatch({type: 'ADD_BOOK', payload: book})
         })
-        // console.log('e')
+        console.log('e')
     }
     console.log('f')
 }
