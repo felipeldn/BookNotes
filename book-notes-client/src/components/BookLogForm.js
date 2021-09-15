@@ -28,9 +28,9 @@ class BookLogForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         window.alert("New entry added.")
-        // console.log('a')
+        console.log('a')
         this.props.addBook(this.state)
-        // console.log('g')
+        console.log('g')
         this.setState({
             title: '',
             author: '',
