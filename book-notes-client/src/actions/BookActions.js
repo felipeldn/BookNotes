@@ -9,12 +9,12 @@ export const addBook = book => {
         })
         .then(resp => resp.json())
         .then(book => {
-            console.log('d')
+            // console.log('d')
             return dispatch({type: 'ADD_BOOK', payload: book})
         })
-        console.log('e')
+        // console.log('e')
     }
-    console.log('f')
+    // console.log('f')
 }
 
 export const getBooks = () => {
