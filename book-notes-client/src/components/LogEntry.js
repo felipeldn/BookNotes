@@ -42,7 +42,6 @@ function LogEntry({book}) {
             console.log("delete book req ===> ", book)
             dispatch(deleteBook(book))
             // window.alert("Entry deleted.")
-            // window.location.reload()
         }
     } 
 
